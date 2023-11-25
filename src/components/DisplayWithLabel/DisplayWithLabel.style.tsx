@@ -13,8 +13,10 @@ export const DisplayContainer = styled.div`
   box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.33);
 `;
 
-export const DisplayWrapper = styled.div`
-  display: flex;
+export const DisplayWrapper = styled.div.attrs<{ $isString: boolean }>(
+  (props) => props
+)`
+  display: ${(props) => (props.$isString ? 'flex' : 'none')};
   align-items: center;
   justify-content: space-evenly;
   max-width: 220px;

@@ -12,7 +12,6 @@ type DashboardSectionProps = {
 
 const DashboardSection: FC<DashboardSectionProps> = ({
   credit,
-  prize,
   jackpot1,
   jackpot2,
 }) => {
@@ -22,19 +21,6 @@ const DashboardSection: FC<DashboardSectionProps> = ({
         <Title>Créditos</Title>
         <DisplayContainer>
           {credit.split('').map((number, index) => {
-            return (
-              <Display
-                key={`${number}-${index}`}
-                {...numberMap[parseInt(number)]}
-              />
-            );
-          })}
-        </DisplayContainer>
-      </div>
-      <div>
-        <Title>Premio</Title>
-        <DisplayContainer>
-          {prize.split('').map((number, index) => {
             return (
               <Display
                 key={`${number}-${index}`}

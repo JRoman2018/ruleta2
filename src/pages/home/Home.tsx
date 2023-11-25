@@ -278,10 +278,12 @@ const Home = () => {
 
   return (
     <Container>
-      <HistorySection
-        history={history}
-        price={padWithLeadingZeros(history[0], 2)}
-      />
+      <HistoryContainer>
+        <HistorySection
+          history={history}
+          price={padWithLeadingZeros(history[0], 2)}
+        />
+      </HistoryContainer>
       <MainWrapper>
         <Wheel
           disableInitialAnimation

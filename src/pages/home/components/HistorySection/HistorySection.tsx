@@ -2,12 +2,16 @@ import { FC } from 'react';
 import {
   DisplayContainer,
   HistoryContainer,
-  StyledButton,
 } from './HistorySection.style';
 import Display from '../../../../components/Display/Display';
 import { numberMap } from '../../../../utils/utils';
-import DisplayWithLabel from '../DisplayWithLabel/DisplayWithLabel';
+import DisplayWithLabel from '../../../../components/DisplayWithLabel/DisplayWithLabel';
 import { Button } from '@mui/material';
+import AppleIcon from '../../../../assets/AppleIcon';
+
+const fruit = {
+  apple: <AppleIcon />,
+};
 
 type HistorySectionProps = {
   history: number[];
@@ -43,7 +47,7 @@ const HistorySection: FC<HistorySectionProps> = ({ history, price }) => {
           </DisplayContainer>
         );
       })}
-      <DisplayWithLabel value={<>Fruta</>} footer="Fruta" bgColor="green" />
+      <DisplayWithLabel value={fruit.apple} footer="Fruta" bgColor="green" />
       <DisplayWithLabel value={price} footer="Premio" bgColor="blue" />
     </HistoryContainer>
   );

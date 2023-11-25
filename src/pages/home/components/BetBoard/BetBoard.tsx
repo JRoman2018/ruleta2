@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { PlayBtn } from './BetBoard.style';
-import DisplayWithLabel from '../DisplayWithLabel/DisplayWithLabel';
+import DisplayWithLabel from '../../../../components/DisplayWithLabel/DisplayWithLabel';
 
 type BetBoardType = {
   total: string;

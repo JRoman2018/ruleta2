@@ -7,7 +7,6 @@ export const Container = styled.div`
 
 export const MainWrapper = styled.section`
   background-color: #282c34;
-  min-height: 82vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -18,7 +17,7 @@ export const MainWrapper = styled.section`
 
 export const HistoryContainer = styled.section`
   background-color: #282c34;
-  width: 15vw;
+  height: 128px;
 `;
 
 export const BetWrapper = styled.section`

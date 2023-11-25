@@ -4,8 +4,8 @@ import {
   DisplayFooter,
   DisplayWrapper,
 } from './DisplayWithLabel.style';
-import Display from '../../../../components/Display/Display';
-import { numberMap } from '../../../../utils/utils';
+import Display from '../Display/Display';
+import { numberMap } from '../../utils/utils';
 
 type DisplayWithLabelProp = {
   onClick?: () => void;
@@ -22,7 +22,7 @@ const DisplayWithLabel: FC<DisplayWithLabelProp> = ({
 }) => {
   return (
     <DisplayContainer onClick={onClick ? onClick : undefined}>
-      <DisplayWrapper>
+      <DisplayWrapper $isString={typeof value === 'string'}>
         {typeof value === 'string'
           ? value.split('').map((number, index) => {
               return (

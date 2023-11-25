@@ -1,14 +1,9 @@
-import { Button } from '@mui/material';
+
 import styled from 'styled-components';
 
 export const HistoryContainer = styled.div`
   display: flex;
   width: 100%;
-`;
-
-export const StyledButton = styled(Button)`
-  margin: 0 20px 0 0;
-  min-width: 200px;
 `;
 
 export const DisplayContainer = styled.div`
