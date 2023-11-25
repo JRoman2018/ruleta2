@@ -21,32 +21,52 @@ const DashboardSection: FC<DashboardSectionProps> = ({
       <div>
         <Title>Créditos</Title>
         <DisplayContainer>
-          {credit.split('').map((number) => {
-            return <Display {...numberMap[parseInt(number)]} />;
+          {credit.split('').map((number, index) => {
+            return (
+              <Display
+                key={`${number}-${index}`}
+                {...numberMap[parseInt(number)]}
+              />
+            );
           })}
         </DisplayContainer>
       </div>
       <div>
         <Title>Premio</Title>
         <DisplayContainer>
-          {prize.split('').map((number) => {
-            return <Display {...numberMap[parseInt(number)]} />;
+          {prize.split('').map((number, index) => {
+            return (
+              <Display
+                key={`${number}-${index}`}
+                {...numberMap[parseInt(number)]}
+              />
+            );
           })}
         </DisplayContainer>
       </div>
       <div>
         <Title>Jackpot 1</Title>
         <DisplayContainer>
-          {jackpot1.split('').map((number) => {
-            return <Display {...numberMap[parseInt(number)]} />;
+          {jackpot1.split('').map((number, index) => {
+            return (
+              <Display
+                key={`${number}-${index}`}
+                {...numberMap[parseInt(number)]}
+              />
+            );
           })}
         </DisplayContainer>
       </div>
       <div>
         <Title>Jackpot 2</Title>
         <DisplayContainer>
-          {jackpot2.split('').map((number) => {
-            return <Display {...numberMap[parseInt(number)]} />;
+          {jackpot2.split('').map((number, index) => {
+            return (
+              <Display
+                key={`${number}-${index}`}
+                {...numberMap[parseInt(number)]}
+              />
+            );
           })}
         </DisplayContainer>
       </div>

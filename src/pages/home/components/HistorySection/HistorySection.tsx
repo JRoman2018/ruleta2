@@ -1,15 +1,31 @@
 import { FC } from 'react';
-import { DisplayContainer } from './HistorySection.style';
+import {
+  DisplayContainer,
+  HistoryContainer,
+  StyledButton,
+} from './HistorySection.style';
 import Display from '../../../../components/Display/Display';
 import { numberMap } from '../../../../utils/utils';
+import DisplayWithLabel from '../DisplayWithLabel/DisplayWithLabel';
+import { Button } from '@mui/material';
 
 type HistorySectionProps = {
   history: number[];
+  price: string;
 };
 
-const HistorySection: FC<HistorySectionProps> = ({ history }) => {
+const HistorySection: FC<HistorySectionProps> = ({ history, price }) => {
   return (
-    <div>
+    <HistoryContainer>
+      <Button sx={{ margin: '3px', minWidth: '100px' }} variant="contained">
+        Simple
+      </Button>
+      <Button sx={{ margin: '3px', minWidth: '100px' }} variant="contained">
+        Doble
+      </Button>
+      <Button sx={{ margin: '3px', minWidth: '100px' }} variant="contained">
+        Con Fruta
+      </Button>
       {history.map((number, index) => {
         const numberLength = number.toString().length;
         return (
@@ -27,7 +43,9 @@ const HistorySection: FC<HistorySectionProps> = ({ history }) => {
           </DisplayContainer>
         );
       })}
-    </div>
+      <DisplayWithLabel value={<>Fruta</>} footer="Fruta" bgColor="green" />
+      <DisplayWithLabel value={price} footer="Premio" bgColor="blue" />
+    </HistoryContainer>
   );
 };
 

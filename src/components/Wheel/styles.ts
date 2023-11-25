@@ -86,5 +86,5 @@ export const RoulettePointerImage = styled(NonDraggableImage)`
   z-index: 5;
   width: 17%;
   right: 19px;
-  top: 26px;
+  top: 35px;
 `;

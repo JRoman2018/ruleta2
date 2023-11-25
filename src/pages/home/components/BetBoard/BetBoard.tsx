@@ -1,12 +1,6 @@
 import { FC } from 'react';
-import {
-  DisplayContainer,
-  DisplayFooter,
-  DisplayWrapper,
-  PlayBtn,
-} from './BetBoard.style';
-import Display from '../../../../components/Display/Display';
-import { numberMap } from '../../../../utils/utils';
+import { PlayBtn } from './BetBoard.style';
+import DisplayWithLabel from '../DisplayWithLabel/DisplayWithLabel';
 
 type BetBoardType = {
   total: string;
@@ -57,165 +51,124 @@ const BetBoard: FC<BetBoardType> = ({
 }) => {
   return (
     <>
-      <DisplayContainer>
-        <DisplayWrapper>
-          {total.split('').map((number) => {
-            return <Display {...numberMap[parseInt(number)]} />;
-          })}
-        </DisplayWrapper>
-        <DisplayFooter $bgColor="#d59d34">TOTAL BET</DisplayFooter>
-      </DisplayContainer>
-      <DisplayContainer onClick={() => handleClickBet('0')}>
-        <DisplayWrapper>
-          {value0.split('').map((number) => {
-            return <Display {...numberMap[parseInt(number)]} />;
-          })}
-        </DisplayWrapper>
-        <DisplayFooter $bgColor="#f20603">0</DisplayFooter>
-      </DisplayContainer>
+      <DisplayWithLabel value={total} bgColor="#d59d34" footer="TOTAL BET" />
+      <DisplayWithLabel
+        onClick={() => handleClickBet('0')}
+        value={value0}
+        bgColor="#f20603"
+        footer="0"
+      />
       <div>
-        <DisplayContainer onClick={() => handleClickBet('1')}>
-          <DisplayWrapper>
-            {value1.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f20603">1</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('7')}>
-          <DisplayWrapper>
-            {value7.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f20603">7</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('1')}
+          value={value1}
+          bgColor="#f20603"
+          footer="1"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('7')}
+          value={value7}
+          bgColor="#f20603"
+          footer="7"
+        />
       </div>
       <div>
-        <DisplayContainer onClick={() => handleClickBet('2')}>
-          <DisplayWrapper>
-            {value2.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#000">2</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('8')}>
-          <DisplayWrapper>
-            {value8.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#000">8</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('2')}
+          value={value2}
+          bgColor="#000"
+          footer="2"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('8')}
+          value={value8}
+          bgColor="#000"
+          footer="8"
+        />
       </div>
       <div>
-        <DisplayContainer onClick={() => handleClickBet('3')}>
-          <DisplayWrapper>
-            {value3.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f20603">3</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('9')}>
-          <DisplayWrapper>
-            {value9.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f20603">9</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('3')}
+          value={value3}
+          bgColor="#f20603"
+          footer="3"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('9')}
+          value={value9}
+          bgColor="#f20603"
+          footer="9"
+        />
       </div>
       <div>
-        <DisplayContainer onClick={() => handleClickBet('4')}>
-          <DisplayWrapper>
-            {value4.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#000">4</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('10')}>
-          <DisplayWrapper>
-            {value10.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#000">10</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('4')}
+          value={value4}
+          bgColor="#000"
+          footer="4"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('10')}
+          value={value10}
+          bgColor="#000"
+          footer="10"
+        />
       </div>
       <div>
-        <DisplayContainer onClick={() => handleClickBet('5')}>
-          <DisplayWrapper>
-            {value5.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f20603">5</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('11')}>
-          <DisplayWrapper>
-            {value11.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f20603">11</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('5')}
+          value={value5}
+          bgColor="#f20603"
+          footer="5"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('11')}
+          value={value11}
+          bgColor="#f20603"
+          footer="11"
+        />
       </div>
       <div>
-        <DisplayContainer onClick={() => handleClickBet('6')}>
-          <DisplayWrapper>
-            {value6.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#000">6</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('12')}>
-          <DisplayWrapper>
-            {value12.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#000">12</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('6')}
+          value={value6}
+          bgColor="#000"
+          footer="6"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('12')}
+          value={value12}
+          bgColor="#000"
+          footer="12"
+        />
       </div>
       <div>
-        <DisplayContainer onClick={() => handleClickBet('1_6')}>
-          <DisplayWrapper>
-            {value1_6.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f1bb16">1 - 6</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('7_12')}>
-          <DisplayWrapper>
-            {value7_12.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f1bb16">7 - 12</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('1_6')}
+          value={value1_6}
+          bgColor="#f1bb16"
+          footer="1 - 6"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('7_12')}
+          value={value7_12}
+          bgColor="#f1bb16"
+          footer="7 - 12"
+        />
       </div>
       <div>
-        <DisplayContainer onClick={() => handleClickBet('red')}>
-          <DisplayWrapper>
-            {valueRed.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#f20603">Red</DisplayFooter>
-        </DisplayContainer>
-        <DisplayContainer onClick={() => handleClickBet('black')}>
-          <DisplayWrapper>
-            {valueBlack.split('').map((number) => {
-              return <Display {...numberMap[parseInt(number)]} />;
-            })}
-          </DisplayWrapper>
-          <DisplayFooter $bgColor="#000">Black</DisplayFooter>
-        </DisplayContainer>
+        <DisplayWithLabel
+          onClick={() => handleClickBet('red')}
+          value={valueRed}
+          bgColor="#f20603"
+          footer="red"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('black')}
+          value={valueBlack}
+          bgColor="#000"
+          footer="black"
+        />
       </div>
       <PlayBtn className={'spin-button'} onClick={handleClear}>
         Clear

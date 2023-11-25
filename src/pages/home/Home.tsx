@@ -25,6 +25,19 @@ const data = [
   { option: '6' },
   { option: '11' },
   { option: '4' },
+  { option: '13' },
+  { option: '14' },
+  { option: '15' },
+  { option: '16' },
+  { option: '17' },
+  { option: '18' },
+  { option: '19' },
+  { option: '20' },
+  { option: '21' },
+  { option: '22' },
+  { option: '23' },
+  { option: '24' },
+  { option: '25' },
 ];
 
 const backgroundColors = ['#010101', '#f90205'];
@@ -38,7 +51,7 @@ const radiusLineColor = '#bab2b9';
 const radiusLineWidth = 3;
 const fontFamily = 'Nunito';
 const fontWeight = 'bold';
-const fontSize = 34;
+const fontSize = 20;
 const fontStyle = 'normal';
 const textDistance = 65;
 const spinDuration = 1.0;
@@ -49,7 +62,7 @@ const Home = () => {
   const [prize, setPrize] = useState(0);
   const [jackpot1, setJackpot1] = useState(300);
   const [jackpot2, setJackpot2] = useState(165);
-  const [history, setHistory] = useState([0, 0, 0, 0, 0, 0, 0]);
+  const [history, setHistory] = useState([0, 0]);
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [selectedValue, setSelectedValue] = useState(0);
   const [hasStoppedSpinning, setHasStoppedSpinning] = useState(false);
@@ -265,10 +278,11 @@ const Home = () => {
 
   return (
     <Container>
+      <HistorySection
+        history={history}
+        price={padWithLeadingZeros(history[0], 2)}
+      />
       <MainWrapper>
-        <HistoryContainer>
-          <HistorySection history={history} />
-        </HistoryContainer>
         <Wheel
           disableInitialAnimation
           mustStartSpinning={mustSpin}
