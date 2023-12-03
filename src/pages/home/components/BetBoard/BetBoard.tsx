@@ -69,73 +69,23 @@ const BetBoard: FC<BetBoardType> = ({
     <>
       <DisplayWithLabel value={total} bgColor="#d59d34" footer="TOTAL BET" />
       <DisplayWithLabel
-        onClick={() => handleClickBet('13')}
-        value={value13}
+        onClick={() => handleClickBet('9')}
+        value={value9}
         bgColor="#000"
-        footer="13"
+        footer="9"
       />
       <div>
         <DisplayWithLabel
           onClick={() => handleClickBet('1')}
           value={value1}
-          bgColor="#f20603"
+          bgColor="#000"
           footer="1"
         />
         <DisplayWithLabel
-          onClick={() => handleClickBet('14')}
-          value={value14}
+          onClick={() => handleClickBet('10')}
+          value={value10}
           bgColor="#f20603"
-          footer="14"
-        />
-      </div>
-      <div>
-        <DisplayWithLabel
-          onClick={() => handleClickBet('2')}
-          value={value2}
-          bgColor="#000"
-          footer="2"
-        />
-        <DisplayWithLabel
-          onClick={() => handleClickBet('15')}
-          value={value15}
-          bgColor="#000"
-          footer="15"
-        />
-      </div>
-      <div>
-        <DisplayWithLabel
-          onClick={() => handleClickBet('3')}
-          value={value3}
-          bgColor="#f20603"
-          footer="3"
-        />
-        <DisplayWithLabel
-          onClick={() => handleClickBet('16')}
-          value={value16}
-          bgColor="#f20603"
-          footer="16"
-        />
-      </div>
-      <div>
-        <DisplayWithLabel
-          onClick={() => handleClickBet('4')}
-          value={value4}
-          bgColor="#000"
-          footer="4"
-        />
-        <DisplayWithLabel
-          onClick={() => handleClickBet('17')}
-          value={value17}
-          bgColor="#000"
-          footer="17"
-        />
-      </div>
-      <div>
-        <DisplayWithLabel
-          onClick={() => handleClickBet('5')}
-          value={value5}
-          bgColor="#03651a"
-          footer="5"
+          footer="10"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('18')}
@@ -146,10 +96,16 @@ const BetBoard: FC<BetBoardType> = ({
       </div>
       <div>
         <DisplayWithLabel
-          onClick={() => handleClickBet('6')}
-          value={value6}
+          onClick={() => handleClickBet('2')}
+          value={value2}
           bgColor="#f20603"
-          footer="6"
+          footer="2"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('11')}
+          value={value11}
+          bgColor="#000"
+          footer="11"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('19')}
@@ -160,10 +116,16 @@ const BetBoard: FC<BetBoardType> = ({
       </div>
       <div>
         <DisplayWithLabel
-          onClick={() => handleClickBet('7')}
-          value={value7}
+          onClick={() => handleClickBet('3')}
+          value={value3}
           bgColor="#000"
-          footer="7"
+          footer="3"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('12')}
+          value={value12}
+          bgColor="#f20603"
+          footer="12"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('20')}
@@ -174,10 +136,16 @@ const BetBoard: FC<BetBoardType> = ({
       </div>
       <div>
         <DisplayWithLabel
-          onClick={() => handleClickBet('8')}
-          value={value8}
+          onClick={() => handleClickBet('4')}
+          value={value4}
           bgColor="#f20603"
-          footer="8"
+          footer="4"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('13')}
+          value={value13}
+          bgColor="#000"
+          footer="13"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('21')}
@@ -188,10 +156,16 @@ const BetBoard: FC<BetBoardType> = ({
       </div>
       <div>
         <DisplayWithLabel
-          onClick={() => handleClickBet('9')}
-          value={value9}
-          bgColor="#000"
-          footer="9"
+          onClick={() => handleClickBet('5')}
+          value={value5}
+          bgColor="#03651a"
+          footer="5"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('14')}
+          value={value14}
+          bgColor="#f20603"
+          footer="14"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('22')}
@@ -202,10 +176,16 @@ const BetBoard: FC<BetBoardType> = ({
       </div>
       <div>
         <DisplayWithLabel
-          onClick={() => handleClickBet('10')}
-          value={value10}
+          onClick={() => handleClickBet('6')}
+          value={value6}
           bgColor="#f20603"
-          footer="10"
+          footer="6"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('15')}
+          value={value15}
+          bgColor="#000"
+          footer="15"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('23')}
@@ -216,10 +196,16 @@ const BetBoard: FC<BetBoardType> = ({
       </div>
       <div>
         <DisplayWithLabel
-          onClick={() => handleClickBet('11')}
-          value={value11}
+          onClick={() => handleClickBet('7')}
+          value={value7}
           bgColor="#000"
-          footer="11"
+          footer="7"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('16')}
+          value={value16}
+          bgColor="#f20603"
+          footer="16"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('24')}
@@ -230,10 +216,16 @@ const BetBoard: FC<BetBoardType> = ({
       </div>
       <div>
         <DisplayWithLabel
-          onClick={() => handleClickBet('12')}
-          value={value12}
+          onClick={() => handleClickBet('8')}
+          value={value8}
           bgColor="#f20603"
-          footer="12"
+          footer="8"
+        />
+        <DisplayWithLabel
+          onClick={() => handleClickBet('17')}
+          value={value17}
+          bgColor="#000"
+          footer="17"
         />
         <DisplayWithLabel
           onClick={() => handleClickBet('25')}
@@ -242,6 +234,7 @@ const BetBoard: FC<BetBoardType> = ({
           footer="25"
         />
       </div>
+
       <PlayBtn className={'spin-button'} onClick={handleClear}>
         Clear
       </PlayBtn>

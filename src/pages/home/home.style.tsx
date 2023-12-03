@@ -24,7 +24,7 @@ export const BetWrapper = styled.section`
   display: flex;
   align-items: center;
   padding: 20px;
-  height: 250px;
+  height: 350px;
   background: #361206;
   border: ridge 8px #e1dee3;
   border-radius: 10px;
