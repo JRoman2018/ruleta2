@@ -10,7 +10,7 @@ export const MainWrapper = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 `;
@@ -25,6 +25,17 @@ export const BetWrapper = styled.section`
   align-items: center;
   padding: 20px;
   height: 250px;
+  background: #361206;
+  border: ridge 8px #e1dee3;
+  border-radius: 10px;
+  box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.33);
+`;
+
+export const FruitBetWrapper = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   background: #361206;
   border: ridge 8px #e1dee3;
   border-radius: 10px;

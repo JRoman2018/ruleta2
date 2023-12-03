@@ -1,9 +1,9 @@
-
 import styled from 'styled-components';
 
 export const HistoryContainer = styled.div`
   display: flex;
   width: 100%;
+  justify-content: center;
 `;
 
 export const DisplayContainer = styled.div`

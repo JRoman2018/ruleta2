@@ -5,33 +5,14 @@ import { numberMap } from '../../../../utils/utils';
 
 type DashboardSectionProps = {
   credit: string;
-  prize: string;
   jackpot1: string;
-  jackpot2: string;
 };
 
-const DashboardSection: FC<DashboardSectionProps> = ({
-  credit,
-  jackpot1,
-  jackpot2,
-}) => {
+const DashboardSection: FC<DashboardSectionProps> = ({ credit, jackpot1 }) => {
   return (
     <div>
       <div>
-        <Title>Créditos</Title>
-        <DisplayContainer>
-          {credit.split('').map((number, index) => {
-            return (
-              <Display
-                key={`${number}-${index}`}
-                {...numberMap[parseInt(number)]}
-              />
-            );
-          })}
-        </DisplayContainer>
-      </div>
-      <div>
-        <Title>Jackpot 1</Title>
+        <Title>Barrilito</Title>
         <DisplayContainer>
           {jackpot1.split('').map((number, index) => {
             return (
@@ -44,9 +25,9 @@ const DashboardSection: FC<DashboardSectionProps> = ({
         </DisplayContainer>
       </div>
       <div>
-        <Title>Jackpot 2</Title>
+        <Title>Créditos</Title>
         <DisplayContainer>
-          {jackpot2.split('').map((number, index) => {
+          {credit.split('').map((number, index) => {
             return (
               <Display
                 key={`${number}-${index}`}

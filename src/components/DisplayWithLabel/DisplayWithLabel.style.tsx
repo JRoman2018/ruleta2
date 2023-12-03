@@ -21,7 +21,7 @@ export const DisplayWrapper = styled.div.attrs<{ $isString: boolean }>(
   justify-content: space-evenly;
   max-width: 220px;
   height: 90px;
-  padding: 0 10px;
+  padding: 0 5px;
   background: #361206;
 `;
 

@@ -2,18 +2,23 @@ import { useEffect, useState } from 'react';
 import {
   BetWrapper,
   Container,
+  FruitBetWrapper,
   HistoryContainer,
   MainWrapper,
 } from './home.style';
 import { Wheel } from '../../components/Wheel';
 import HistorySection from './components/HistorySection/HistorySection';
 import DashboardSection from './components/DashboardSection/DashboardSection';
-import { padWithLeadingZeros } from '../../utils/utils';
+import {
+  FRUITS,
+  getRandomFruitKey,
+  padWithLeadingZeros,
+} from '../../utils/utils';
 import BetBoard from './components/BetBoard/BetBoard';
+import FruitBetBoard from './components/BetBoard/FruitBetBoard';
 
 const data = [
-  { option: '0', style: { backgroundColor: '#03651a' } },
-  { option: '5' },
+  { option: '5', style: { backgroundColor: '#03651a' } },
   { option: '12' },
   { option: '3' },
   { option: '10' },
@@ -59,17 +64,15 @@ const spinDuration = 1.0;
 const Home = () => {
   const [mustSpin, setMustSpin] = useState(false);
   const [credit, setCredit] = useState(36);
-  const [prize, setPrize] = useState(0);
   const [jackpot1, setJackpot1] = useState(300);
-  const [jackpot2, setJackpot2] = useState(165);
   const [history, setHistory] = useState([0, 0]);
   const [prizeNumber, setPrizeNumber] = useState(0);
+  const [fruit, setFruit] = useState(FRUITS.mango);
   const [selectedValue, setSelectedValue] = useState(0);
   const [hasStoppedSpinning, setHasStoppedSpinning] = useState(false);
 
   // Bet
   const [totalBet, setTotalBet] = useState(0);
-  const [value0, setValue0] = useState(0);
   const [value1, setValue1] = useState(0);
   const [value2, setValue2] = useState(0);
   const [value3, setValue3] = useState(0);
@@ -82,10 +85,23 @@ const Home = () => {
   const [value10, setValue10] = useState(0);
   const [value11, setValue11] = useState(0);
   const [value12, setValue12] = useState(0);
-  const [value1_6, setValue1_6] = useState(0);
-  const [value7_12, setValue7_12] = useState(0);
-  const [valueRed, setValueRed] = useState(0);
-  const [valueBlack, setValueBlack] = useState(0);
+  const [value13, setValue13] = useState(0);
+  const [value14, setValue14] = useState(0);
+  const [value15, setValue15] = useState(0);
+  const [value16, setValue16] = useState(0);
+  const [value17, setValue17] = useState(0);
+  const [value18, setValue18] = useState(0);
+  const [value19, setValue19] = useState(0);
+  const [value20, setValue20] = useState(0);
+  const [value21, setValue21] = useState(0);
+  const [value22, setValue22] = useState(0);
+  const [value23, setValue23] = useState(0);
+  const [value24, setValue24] = useState(0);
+  const [value25, setValue25] = useState(0);
+  const [apple, setApple] = useState(0);
+  const [banana, setBanana] = useState(0);
+  const [mango, setMango] = useState(0);
+  const [pineapple, setPineapple] = useState(0);
 
   const handleSpinClick = () => {
     if (!mustSpin) {
@@ -96,7 +112,6 @@ const Home = () => {
   };
 
   const handleClear = () => {
-    setValue0(0);
     setValue1(0);
     setValue2(0);
     setValue3(0);
@@ -109,10 +124,23 @@ const Home = () => {
     setValue10(0);
     setValue11(0);
     setValue12(0);
-    setValue1_6(0);
-    setValue7_12(0);
-    setValueRed(0);
-    setValueBlack(0);
+    setValue13(0);
+    setValue14(0);
+    setValue15(0);
+    setValue16(0);
+    setValue17(0);
+    setValue18(0);
+    setValue19(0);
+    setValue20(0);
+    setValue21(0);
+    setValue22(0);
+    setValue23(0);
+    setValue24(0);
+    setValue25(0);
+    setApple(0);
+    setBanana(0);
+    setMango(0);
+    setPineapple(0);
     setCredit((prev) => prev + totalBet);
     setTotalBet(0);
   };
@@ -122,143 +150,105 @@ const Home = () => {
     setCredit((prev) => prev - 1);
   };
 
+  const handleCredit = (
+    updateFn: React.Dispatch<React.SetStateAction<number>>
+  ) => {
+    if (credit > 0) {
+      updateFn((prev) => prev + 1);
+      updateGlobalValues();
+    } else {
+      console.log('no fondo');
+    }
+  };
+
   const handleClickBet = (bet: string) => {
     switch (bet) {
-      case '0':
-        if (credit > 0) {
-          setValue0((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
-        break;
       case '1':
-        if (credit > 0) {
-          setValue1((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue1);
         break;
       case '2':
-        if (credit > 0) {
-          setValue2((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue2);
         break;
       case '3':
-        if (credit > 0) {
-          setValue3((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue3);
         break;
       case '4':
-        if (credit > 0) {
-          setValue4((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue4);
         break;
       case '5':
-        if (credit > 0) {
-          setValue5((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue5);
         break;
       case '6':
-        if (credit > 0) {
-          setValue6((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue6);
         break;
       case '7':
-        if (credit > 0) {
-          setValue7((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue7);
         break;
       case '8':
-        if (credit > 0) {
-          setValue8((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue8);
         break;
       case '9':
-        if (credit > 0) {
-          setValue9((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue9);
         break;
       case '10':
-        if (credit > 0) {
-          setValue10((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue10);
         break;
       case '11':
-        if (credit > 0) {
-          setValue11((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue11);
         break;
       case '12':
-        if (credit > 0) {
-          setValue12((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+        handleCredit(setValue12);
         break;
-      case '1_6':
-        if (credit > 0) {
-          setValue1_6((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+      case '13':
+        handleCredit(setValue13);
         break;
-      case '7_12':
-        if (credit > 0) {
-          setValue7_12((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+      case '14':
+        handleCredit(setValue14);
         break;
-      case 'red':
-        if (credit > 0) {
-          setValueRed((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+      case '15':
+        handleCredit(setValue15);
         break;
-      case 'black':
-        if (credit > 0) {
-          setValueBlack((prev) => prev + 1);
-          updateGlobalValues();
-        } else {
-          console.log('no fondo');
-        }
+      case '16':
+        handleCredit(setValue16);
+        break;
+      case '17':
+        handleCredit(setValue17);
+        break;
+      case '18':
+        handleCredit(setValue18);
+        break;
+      case '19':
+        handleCredit(setValue19);
+        break;
+      case '20':
+        handleCredit(setValue20);
+        break;
+      case '21':
+        handleCredit(setValue21);
+        break;
+      case '22':
+        handleCredit(setValue22);
+        break;
+      case '23':
+        handleCredit(setValue23);
+        break;
+      case '24':
+        handleCredit(setValue24);
+        break;
+      case '25':
+        handleCredit(setValue25);
+        break;
+      case 'apple':
+        handleCredit(setApple);
+        break;
+      case 'banana':
+        handleCredit(setBanana);
+        break;
+      case 'pineapple':
+        handleCredit(setPineapple);
+        break;
+      case 'mango':
+        handleCredit(setMango);
         break;
       default:
         console.log('error');
@@ -267,6 +257,8 @@ const Home = () => {
 
   useEffect(() => {
     if (selectedValue && hasStoppedSpinning) {
+      const newFruit = getRandomFruitKey(FRUITS);
+      setFruit(FRUITS[newFruit]);
       setHistory((prevH) => {
         return [
           parseInt(data[parseInt(selectedValue.toString())].option),
@@ -280,6 +272,7 @@ const Home = () => {
     <Container>
       <HistoryContainer>
         <HistorySection
+          fruit={fruit}
           history={history}
           price={padWithLeadingZeros(history[0], 2)}
         />
@@ -317,16 +310,22 @@ const Home = () => {
         <section>
           <DashboardSection
             credit={padWithLeadingZeros(credit, 4)}
-            prize={padWithLeadingZeros(prize, 4)}
             jackpot1={padWithLeadingZeros(jackpot1, 4)}
-            jackpot2={padWithLeadingZeros(jackpot2, 4)}
           />
         </section>
       </MainWrapper>
+      <FruitBetWrapper>
+        <FruitBetBoard
+          apple={padWithLeadingZeros(apple, 2)}
+          banana={padWithLeadingZeros(banana, 2)}
+          pineapple={padWithLeadingZeros(pineapple, 2)}
+          mango={padWithLeadingZeros(mango, 2)}
+          handleClickBet={handleClickBet}
+        />
+      </FruitBetWrapper>
       <BetWrapper>
         <BetBoard
           total={padWithLeadingZeros(totalBet, 4)}
-          value0={padWithLeadingZeros(value0, 2)}
           value1={padWithLeadingZeros(value1, 2)}
           value2={padWithLeadingZeros(value2, 2)}
           value3={padWithLeadingZeros(value3, 2)}
@@ -339,10 +338,19 @@ const Home = () => {
           value10={padWithLeadingZeros(value10, 2)}
           value11={padWithLeadingZeros(value11, 2)}
           value12={padWithLeadingZeros(value12, 2)}
-          value1_6={padWithLeadingZeros(value1_6, 2)}
-          value7_12={padWithLeadingZeros(value7_12, 2)}
-          valueRed={padWithLeadingZeros(valueRed, 2)}
-          valueBlack={padWithLeadingZeros(valueBlack, 2)}
+          value13={padWithLeadingZeros(value13, 2)}
+          value14={padWithLeadingZeros(value14, 2)}
+          value15={padWithLeadingZeros(value15, 2)}
+          value16={padWithLeadingZeros(value16, 2)}
+          value17={padWithLeadingZeros(value17, 2)}
+          value18={padWithLeadingZeros(value18, 2)}
+          value19={padWithLeadingZeros(value19, 2)}
+          value20={padWithLeadingZeros(value20, 2)}
+          value21={padWithLeadingZeros(value21, 2)}
+          value22={padWithLeadingZeros(value22, 2)}
+          value23={padWithLeadingZeros(value23, 2)}
+          value24={padWithLeadingZeros(value24, 2)}
+          value25={padWithLeadingZeros(value25, 2)}
           handleClickBet={handleClickBet}
           handleClear={handleClear}
           handleSpinClick={handleSpinClick}

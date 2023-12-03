@@ -11,18 +11,22 @@ type DisplayWithLabelProp = {
   onClick?: () => void;
   value: string | React.ReactElement;
   bgColor: string;
-  footer: string;
+  footerStyle?: object;
+  footer: string | React.ReactElement;
 };
 
 const DisplayWithLabel: FC<DisplayWithLabelProp> = ({
   onClick,
   value,
   bgColor,
+  footerStyle,
   footer,
 }) => {
   return (
     <DisplayContainer onClick={onClick ? onClick : undefined}>
-      <DisplayWrapper $isString={typeof value === 'string'}>
+      <DisplayWrapper
+        $isString={typeof value === 'string' || typeof value === 'object'}
+      >
         {typeof value === 'string'
           ? value.split('').map((number, index) => {
               return (
@@ -34,7 +38,9 @@ const DisplayWithLabel: FC<DisplayWithLabelProp> = ({
             })
           : value}
       </DisplayWrapper>
-      <DisplayFooter $bgColor={bgColor}>{footer}</DisplayFooter>
+      <DisplayFooter style={footerStyle} $bgColor={bgColor}>
+        {footer}
+      </DisplayFooter>
     </DisplayContainer>
   );
 };
