@@ -2,7 +2,7 @@ import { FC } from 'react';
 import DisplayWithLabel from '../../../../components/DisplayWithLabel/DisplayWithLabel';
 import { FRUITS } from '../../../../utils/utils';
 
-type FruitBetBoard = {
+type FruitBetBoardType = {
   apple: string;
   banana: string;
   mango: string;
@@ -17,7 +17,7 @@ const footerStyle = {
   justifyContent: 'center',
 };
 
-const FruitBetBoard: FC<FruitBetBoard> = ({
+const FruitBetBoard: FC<FruitBetBoardType> = ({
   apple,
   banana,
   mango,
